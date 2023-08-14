@@ -24,7 +24,7 @@ const profileAndSession = (endpoint, informationDevices) => __awaiter(void 0, vo
         consents: {},
     };
     try {
-        const profileData = yield (0, base_1.default)('http://103.175.216.183:8181/cxs/profiles', data);
+        const profileData = yield (0, base_1.default)(`${endpoint}/cxs/profiles`, data);
         if (profileData.status === 200) {
             const sessionId = {
                 itemId: (informationDevices === null || informationDevices === void 0 ? void 0 : informationDevices.deviceId) + 'android' || '',
@@ -37,7 +37,7 @@ const profileAndSession = (endpoint, informationDevices) => __awaiter(void 0, vo
                 systemProperties: {},
                 timeStamp: new Date().toISOString(),
             };
-            yield (0, base_1.default)(`http://103.175.216.183:8181/cxs/profiles/sessions/${informationDevices === null || informationDevices === void 0 ? void 0 : informationDevices.deviceId}android`, sessionId);
+            yield (0, base_1.default)(`${endpoint}/cxs/profiles/sessions/${informationDevices === null || informationDevices === void 0 ? void 0 : informationDevices.deviceId}android`, sessionId);
         }
     }
     catch (error) {

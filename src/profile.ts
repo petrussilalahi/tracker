@@ -38,7 +38,7 @@ export const profileAndSession = async (endpoint: string, informationDevices: an
   };
   
   try {
-    const profileData =  await baseApi('http://103.175.216.183:8181/cxs/profiles', data);
+    const profileData =  await baseApi(`${endpoint}/cxs/profiles`, data);
     if (profileData.status === 200) {
       const sessionId: SessionData = {
         itemId: informationDevices?.deviceId + 'android' || '',
@@ -51,7 +51,7 @@ export const profileAndSession = async (endpoint: string, informationDevices: an
         systemProperties: {},
         timeStamp: new Date().toISOString(),
       };
-      await baseApi(`http://103.175.216.183:8181/cxs/profiles/sessions/${informationDevices?.deviceId}android`, sessionId);
+      await baseApi(`${endpoint}/cxs/profiles/sessions/${informationDevices?.deviceId}android`, sessionId);
     }
   } catch (error) {
     throw new Error('Error Register Profile And Session, Please Contact Support');

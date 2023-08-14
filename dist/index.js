@@ -35,6 +35,7 @@ const cepTracker = () => {
     };
     const onCustomEvents = (obj, properties) => {
         let tmpCustom;
+        let url = `${apiUrl}/cxs/eventcollector`;
         const evonCustomEvents = {
             events: [
                 {
@@ -67,11 +68,12 @@ const cepTracker = () => {
             if (properties) {
                 tmpCustom.events[0].properties = properties;
             }
-            (0, base_1.default)(apiUrl, tmpCustom);
+            (0, base_1.default)(url, tmpCustom);
         }
     };
     const onIdentify = (obj, properties) => {
         let tmpIdentify;
+        let url = `${apiUrl}/cxs/eventcollector`;
         const evonIdentify = {
             events: [
                 {
@@ -104,11 +106,12 @@ const cepTracker = () => {
             if (properties) {
                 tmpIdentify.events[0].properties = properties;
             }
-            (0, base_1.default)(apiUrl, tmpIdentify);
+            (0, base_1.default)(url, tmpIdentify);
         }
     };
     const onScreen = (obj, properties) => {
         let tmpView;
+        let url = `${apiUrl}/cxs/eventcollector`;
         const evonScreen = {
             events: [
                 {
@@ -141,7 +144,7 @@ const cepTracker = () => {
             if (properties) {
                 tmpView.events[0].target.properties = properties;
             }
-            (0, base_1.default)(apiUrl, tmpView);
+            (0, base_1.default)(url, tmpView);
         }
     };
     return {

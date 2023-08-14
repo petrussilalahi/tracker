@@ -53,8 +53,9 @@ const setSameKeyValues = (jsons: any, key: string, value: any): any => {
   
     
 
-    const onCustomEvents = (obj: Record<string, any>, properties?: any): void => {
+    const onCustomEvents = (obj: any, properties?: any): void => {
       let tmpCustom : onCustomEventsPayload | undefined;
+      let url = `${apiUrl}/cxs/eventcollector`;
       const evonCustomEvents  : onCustomEventsPayload  = {
         events: [
           {
@@ -88,12 +89,13 @@ const setSameKeyValues = (jsons: any, key: string, value: any): any => {
           if (properties) {
               tmpCustom.events[0].properties = properties;
           }
-          baseApi(apiUrl, tmpCustom);
+          baseApi(url, tmpCustom);
       }
   };
   
    const onIdentify = (obj: any, properties: any): void => {
       let tmpIdentify: IdentifyPayload | undefined;
+      let url = `${apiUrl}/cxs/eventcollector`;
       const evonIdentify : IdentifyPayload  = {
         events: [
           {
@@ -126,12 +128,13 @@ const setSameKeyValues = (jsons: any, key: string, value: any): any => {
         if (properties) {
           tmpIdentify.events[0].properties = properties;
         }
-        baseApi(apiUrl, tmpIdentify);
+        baseApi(url, tmpIdentify);
       }
     };
   
-    const onScreen = (obj: Record<string, any>, properties?: any): void => {
+    const onScreen = (obj: any, properties?: any): void => {
       let tmpView: ScreenPayload | undefined;
+      let url = `${apiUrl}/cxs/eventcollector`;
       const evonScreen : ScreenPayload  = {
         events: [
           {
@@ -165,7 +168,7 @@ const setSameKeyValues = (jsons: any, key: string, value: any): any => {
         if (properties) {
           tmpView.events[0].target.properties = properties;
         }
-        baseApi(apiUrl, tmpView);
+        baseApi(url, tmpView);
       }
     };
 
